@@ -52,7 +52,7 @@ controller.create = (req, res) => {
 }
 
 controller.update = (req, res) => {
-    try {
+    try {agit
         item = listaProdutos.find(i => i.id == req.params.id)
         if (item) {
             item = req.body
