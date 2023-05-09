@@ -1,12 +1,12 @@
-const express = require("express")
-const ControllerProduto = require("../Controllers/ControllerProduct")
+const express = require("express");
+const ControllerProduto = require("../Controllers/ControllerProduct");
 
-const RoutesProduto = express.Router()
+const RoutesProduto = express.Router();
 
-RoutesProduto.get("/products", controller.getAll)
-RoutesProduto.get("/products/:id", controller.getById)
-RoutesProduto.post("/products", controller.create)
-RoutesProduto.put("/products/:id", controller.update)
-RoutesProduto.delete("/products/:id", controller.delete)
+RoutesProduto.get("/products", ControllerProduto.getAll);
+RoutesProduto.get("/products/:id", ControllerProduto.getById);
+RoutesProduto.post("/products", ControllerProduto.create);
+RoutesProduto.put("/products/:id", ControllerProduto.update);
+RoutesProduto.delete("/products/:id", ControllerProduto.delete);
 
-module.exports = RoutesProduto
+module.exports = RoutesProduto;
