@@ -1,7 +1,8 @@
 const sequelize = require("sequelize");
+const config = require("../config.json");
 
-const conn = new sequelize("nodeproducts", "nodeproducts_manager", "node123$%",{
-    host: "localhost",
+const conn = new sequelize(config.mysql.database, config.mysql.user, config.mysql.pass,{
+    host: config.mysql.host,
     dialect: "mysql",
     define: {
         timestamps: false,

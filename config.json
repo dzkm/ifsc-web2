@@ -2,7 +2,8 @@
     "mysql":{
         "host": "localhost",
         "port": 3306,
-        "user": "mysql",
-        "pass": "mysql"
+        "user": "web2",
+        "pass": "web2#$%",
+        "database": "web2"
     }
 }
