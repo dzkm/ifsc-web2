@@ -1,5 +1,4 @@
 const Client = require("../Models/Client");
-const Op = require("sequelize");
 const ClientController = {};
 
 
@@ -16,19 +15,6 @@ ClientController.getById = async (req, res) => {
         res.status(200).json(await Client.findByPk(req.params.id)); 
     }catch(error){
         res.status(422).json("Failed to find client. " + error);
-    }
-}
-
-ClientController.getByCity = async (req, res) => {
-    try{
-        const {SingleClient, CountClient} = await Client.findAll({
-            where: {
-                cidade: req.params.cidade
-            }
-        });
-        res.status(200).json(`Encontrado ${CountClient} cliente(s) nessa cidade:` + SingleClient);
-    }catch(error){
-        res.status(422).json("Nenhum cliente encontrado. " + error);
     }
 }
 

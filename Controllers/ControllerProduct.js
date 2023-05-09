@@ -35,8 +35,8 @@ ControllerProduct.update = async (req, res) => {
         newProduct.price = req.body.price;
         await newProduct.save();
         res.status(200).json(`"Old": ${oldProduct}, "New":${newProduct}`);
-    } catch (error) {
-        res.status(422).json("Error updating product: " + error);
+    } catch (e) {
+        res.status(422).json("Error updating product: " + e);
     }
 };
 
@@ -45,8 +45,8 @@ ControllerProduct.delete = async (req, res) => {
         const SingleProduct = Product.findByPk(req.params.id);
         SingleProduct.destroy();
         res.status(200).json(`"Deleted": ${SingleProduct}`);
-    } catch (error) {
-        res.status(422).json("Error deleting product: " + error);
+    } catch (e) {
+        res.status(422).json("Error deleting product: " + e);
     }
 };
 
