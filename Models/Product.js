@@ -1,18 +1,18 @@
 const DataType = require("sequelize");
 const MySQLConnection = require("../Database/MySQLConnection");
 
-const Product = db.define("product", {
+const Product = MySQLConnection.define("product", {
     id: {
-        type: DataTypes.INTEGER,
+        type: DataType.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataType.STRING,
         allowNull: false,
     },
     price: {
-        type: DataTypes.DECIMAL(10, 2),
+        type: DataType.DECIMAL(10, 2),
         allowNull: false,
     },
 });

@@ -1,9 +1,9 @@
 {
     "mysql":{
-        "host": "localhost",
+        "host": "127.0.0.1",
         "port": 3306,
-        "user": "web2",
-        "pass": "web2#$%",
+        "user": "web2_user",
+        "pass": "web2345",
         "database": "web2"
     }
 }
