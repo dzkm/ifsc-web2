@@ -59,4 +59,4 @@ CityController.delete = async (req, res) => {
     }
 };
 
-module.exports = City;
+module.exports = CityController;

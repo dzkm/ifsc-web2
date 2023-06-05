@@ -1,18 +1,18 @@
-const DataType = require("sequelize");
+const { DataTypes } = require("sequelize");
 const MySQLConnection = require("../Database/MySQLConnection");
 
-const City = MySQLConnection.define("city", {
+const City = MySQLConnection.define("City", {
     id: {
-        type: DataType.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
     city: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     state: {
-        type: DataType.ENUM([
+        type: DataTypes.ENUM([
             "AC",
             "AL",
             "AP",
@@ -44,7 +44,7 @@ const City = MySQLConnection.define("city", {
         allowNull: false,
     },
     ibge_code: {
-        type: DataType.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
 });
