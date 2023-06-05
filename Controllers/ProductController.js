@@ -1,7 +1,7 @@
 const Product = require("../Models/Product");
-const ControllerProduct = {};
+const ProductController = {};
 
-ControllerProduct.getAll = async (req, res) => {
+ProductController.getAll = async (req, res) => {
     try {
         res.status(200).json(await Product.findAll());
     } catch (e) {
@@ -9,7 +9,7 @@ ControllerProduct.getAll = async (req, res) => {
     }
 };
 
-ControllerProduct.getById = async (req, res) => {
+ProductController.getById = async (req, res) => {
     try {
         res.status(200).json(await Product.findByPk(req.params.id));
     } catch (e) {
@@ -17,7 +17,7 @@ ControllerProduct.getById = async (req, res) => {
     }
 };
 
-ControllerProduct.create = async (req, res) => {
+ProductController.create = async (req, res) => {
     try {
         let { description, price } = req.body;
         const newProduct = await Product.create({ description, price });
@@ -27,7 +27,7 @@ ControllerProduct.create = async (req, res) => {
     }
 };
 
-ControllerProduct.update = async (req, res) => {
+ProductController.update = async (req, res) => {
     try {
         const newProduct = await Product.findByPk(req.params.id);
         const oldProduct = newProduct;
@@ -40,7 +40,7 @@ ControllerProduct.update = async (req, res) => {
     }
 };
 
-ControllerProduct.delete = async (req, res) => {
+ProductController.delete = async (req, res) => {
     try {
         const SingleProduct = Product.findByPk(req.params.id);
         SingleProduct.destroy();
@@ -50,4 +50,4 @@ ControllerProduct.delete = async (req, res) => {
     }
 };
 
-module.exports = ControllerProduct;
+module.exports = ProductController;
