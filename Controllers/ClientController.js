@@ -1,4 +1,4 @@
-const Client = require("../Models/Client");
+const { Client } = require("../Models/Client");
 const ClientController = {};
 
 

@@ -1,26 +1,26 @@
-const DataType = require("sequelize");
-const MySQLConnection = require("../database/MySQLConnection");
+const { DataTypes } = require("sequelize");
+const MySQLConnection = require("../Database/MySQLConnection");
 
 const Client = MySQLConnection.define("Client", {
     id: {
-        type: DataType.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
     nome: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: true
     },
     cpf: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     tipo_pessoa: {
-        type: DataType.CHAR(2),
+        type: DataTypes.CHAR(2),
         allowNull: false
     }
 });
