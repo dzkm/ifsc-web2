@@ -1,12 +1,12 @@
-const sequelize = require("sequelize");
-const config = require("../config.json");
+const { Sequelize } = require("sequelize");
+const { mysql } = require("../config.json");
 
-const conn = new sequelize(
-    config.mysql.database,
-    config.mysql.user,
-    config.mysql.pass,
+const MySQLConnection = new Sequelize(
+    mysql.database,
+    mysql.user,
+    mysql.pass,
     {
-        host: config.mysql.host,
+        host: mysql.host,
         dialect: "mysql",
         define: {
             timestamps: false,
@@ -15,7 +15,7 @@ const conn = new sequelize(
     }
 );
 
-conn.authenticate()
+MySQLConnection.authenticate()
     .then(() => {
         console.log("Connection established successfuly.");
     })
@@ -26,4 +26,4 @@ conn.authenticate()
         );
     });
 
-module.exports = conn;
+module.exports = MySQLConnection;
