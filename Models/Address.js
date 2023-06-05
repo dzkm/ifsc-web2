@@ -1,32 +1,27 @@
-const DataType = require("sequelize");
+const { DataTypes } = require("sequelize");
 const MySQLConnection = require("../Database/MySQLConnection");
-const Client = require("Client");
+const Client = require("./Client");
+const City = require("./City");
 
-const Address = MySQLConnection.define("address", {
+const Address = MySQLConnection.define("Address", {
     id: {
-        type: DataType.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
     street: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     neighborhood: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
-    },
-    city: {
-        type: DataType.INTEGER,
-        allowNull: false,
-        references: { model: "city", key: "id" },
-        onDelete: "RESTRICT",
-    },
+    }
 });
 
-const ClientAddress = MySQLConnection.define("clientaddress", {
+const ClientAddress = MySQLConnection.define("ClientAddress", {
     number:{
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         defaultValue: "SN",
         allowNull: false,
     }
@@ -34,6 +29,8 @@ const ClientAddress = MySQLConnection.define("clientaddress", {
 
 Client.belongsToMany(Address, { through: ClientAddress});
 Address.belongsToMany(Client, { through: ClientAddress});
+Address.belongsTo(City);
+City.hasMany(Address);
 
 (async () => {
     try {
@@ -46,4 +43,4 @@ Address.belongsToMany(Client, { through: ClientAddress});
     }
 })();
 
-module.exports = Address;
+module.exports = {Address, ClientAddress};
